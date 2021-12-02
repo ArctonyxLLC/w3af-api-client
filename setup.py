@@ -62,7 +62,7 @@ setup(
     platforms='Linux',
 
     description='REST API client to consume w3af',
-    long_description=read('README.rst'),
+    long_description=read('README.md'),
 
     author='Andres Riancho',
     author_email='andres.riancho@gmail.com',
