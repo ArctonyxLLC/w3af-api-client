@@ -12,8 +12,7 @@ from os.path import basename, dirname, join, splitext
 from setuptools import find_packages, setup
 
 # My stuff
-from w3af_api_client import __VERSION__
-
+__VERSION__ = "3.0.1"
 
 if os.environ.get('CIRCLECI', None) is not None:
     # monkey-patch distutils upload
