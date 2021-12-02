@@ -8,9 +8,8 @@ import platform
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
 from base64 import standard_b64encode
-
-from io import BytesIO
-from requests.utils import urlparse
+import urllib.parse
+import io as StringIO
 from hashlib import md5
 
 from distutils.errors import DistutilsError, DistutilsOptionError
@@ -66,7 +65,7 @@ class upload(PyPIRCCommand):
     def upload_file(self, command, pyversion, filename):
         # Makes sure the repository URL is compliant
         schema, netloc, url, params, query, fragments = \
-            urlparse(self.repository)
+            urllib.parse.urlparse(self.repository)
         if params or query or fragments:
             raise AssertionError("Incompatible url %s" % self.repository)
 
@@ -142,8 +141,8 @@ class upload(PyPIRCCommand):
         boundary = '--------------GHSKFJDLGDS7543FJKLFHRE75642756743254'
         sep_boundary = '\n--' + boundary
         end_boundary = sep_boundary + '--'
-        body = BytesIO()
-        for key, value in data.items():
+        body = StringIO.StringIO()
+        for key, value in list(data.items()):
             # handle multiple entries for the same name
             if not isinstance(value, list):
                 value = [value]

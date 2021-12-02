@@ -3,10 +3,10 @@ import base64
 import logging
 from builtins import range
 
-from w3af_api_client.log import Log
-from w3af_api_client.finding import Finding
-from w3af_api_client.scanner_exception import ScannerException
-from w3af_api_client.utils.exceptions import (APIException,
+from .log import Log
+from .finding import Finding
+from .scanner_exception import ScannerException
+from .utils.exceptions import (APIException,
                                               ScanStopTimeoutException)
 
 
@@ -110,6 +110,7 @@ class Scan(object):
 
         if findings is None:
             raise APIException('Failed to retrieve findings')
+
 
         return [Finding(self.conn, f['href']) for f in findings]
 

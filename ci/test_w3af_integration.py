@@ -51,7 +51,7 @@ class TestW3afIntegration(unittest.TestCase):
 
         findings_list = scan.get_findings()
         self.assertGreaterEqual(len(findings_list), 4)
-        print('Got %s findings' % len(findings_list))
+        print(('Got %s findings' % len(findings_list)))
 
         finding = findings_list[0]
         self.assertIsInstance(finding, Finding)

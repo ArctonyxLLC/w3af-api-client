@@ -12,13 +12,13 @@ if six.PY3:
     import http.client as http_client
 else:
     # Python 2
-    import httplib as http_client
+    import http.client as http_client
 
 
-from w3af_api_client import __VERSION__
-from w3af_api_client.utils.constants import ISSUE_URL
-from w3af_api_client.scan import Scan
-from w3af_api_client.utils.exceptions import (APIException,
+from . import __VERSION__
+from .utils.constants import ISSUE_URL
+from .scan import Scan
+from .utils.exceptions import (APIException,
                                               ForbiddenException,
                                               NotFoundException,
                                               BadRequestException)
