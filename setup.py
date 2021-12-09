@@ -50,7 +50,7 @@ setup(
     author_email='andres.riancho@gmail.com',
     url='https://github.com/andresriancho/w3af-api-client/',
 
-    packages=['w3af_api_client'],
+    packages=['w3af_api_client', 'w3af_api_client/utils'],
     include_package_data=True,
     install_requires=["future", "requests", "six"],
 
