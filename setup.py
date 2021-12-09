@@ -36,24 +36,6 @@ def read(*names, **kwargs):
     ).read()
 
 
-def requires(filename):
-    """Returns a list of all pip requirements
-    :param filename: the Pip requirement file (usually 'requirements.txt')
-    :return: list of modules
-    :rtype: list
-    """
-    modules = []
-    with open(filename, 'r') as pipreq:
-        for line in pipreq:
-            line = line.strip()
-            # Checks if line starts with a comment or referencing
-            # external pip requirements file (with '-e'):
-            if line.startswith('#') or line.startswith('-') or not line:
-                continue
-            modules.append(line)
-    return modules
-
-
 setup(
     name='w3af-api-client',
 
@@ -68,10 +50,9 @@ setup(
     author_email='andres.riancho@gmail.com',
     url='https://github.com/andresriancho/w3af-api-client/',
 
-    packages=find_packages('w3af_api_client'),
-    package_dir={'': 'w3af_api_client'},
+    packages=['w3af_api_client'],
     include_package_data=True,
-    install_requires=requires('requirements.txt'),
+    install_requires=["future", "requests", "six"],
 
     # https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[

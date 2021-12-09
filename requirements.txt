@@ -1,7 +1,0 @@
-#
-# These requirements are only needed for dev/testing, the user requirements
-# are in setup.py
-#
-future==0.18.2
-requests==2.25.1
-six==1.15.0
